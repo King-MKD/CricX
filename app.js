@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // SAVE / LOAD FUNCTIONS
 function saveBatting() {
   const data = {};
-  [
+  const fields = [
     "matches",
     "innings",
     "runs",
@@ -60,12 +60,19 @@ function saveBatting() {
     "100s",
     "duck",
     "not_outs"
-  ].forEach(k => {
+  ];
+
+  fields.forEach(k => {
     const el = document.getElementById("bat_" + k);
-    if (el) data[k] = parseFloat(el.value) || 0;
+    if (!el) {
+      console.log("Missing field: bat_" + k);
+      return;
+    }
+    data[k] = el.value;
   });
 
   localStorage.setItem("batting", JSON.stringify(data));
+  console.log("Saved batting:", data);
   alert("Batting saved!");
 }
 
@@ -91,11 +98,11 @@ function saveFielding() {
 }
 
 function loadAll() {
-  const batting = JSON.parse(localStorage.getItem("batting")||"{}");
-  Object.keys(batting).forEach(k => {
-    const el = document.getElementById("bat_"+k);
-    if(el) el.value = batting[k];
-  });
+  const batting = JSON.parse(localStorage.getItem("batting") || "{}");
+Object.keys(batting).forEach(k => {
+  const el = document.getElementById("bat_" + k);
+  if (el) el.value = batting[k];
+});
 
   const bowling = JSON.parse(localStorage.getItem("bowling")||"{}");
   Object.keys(bowling).forEach(k => {
@@ -109,4 +116,5 @@ function loadAll() {
     if(el) el.value = fielding[k];
   });
 }
+
 
