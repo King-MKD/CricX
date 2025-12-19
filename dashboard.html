@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CricX Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Player Name -->
+  <h1 id="player"></h1>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="batting">Batting</button>
+    <button class="tab-btn" data-tab="bowling">Bowling</button>
+    <button class="tab-btn" data-tab="fielding">Fielding</button>
+  </div>
+
+  <!-- BATTING TAB -->
+<div id="batting" class="tab active stats-grid">
+  <div class="stat-card"><div class="stat-label">Matches</div><input type="number" step="1" id="bat_matches"></div>
+  <div class="stat-card"><div class="stat-label">Innings</div><input type="number" step="1" id="bat_innings"></div>
+  <div class="stat-card"><div class="stat-label">Runs</div><input type="number" step="0.1" id="bat_runs"></div>
+  <div class="stat-card"><div class="stat-label">Balls Faced</div><input type="number" step="1" id="bat_balls_faced"></div>
+  <div class="stat-card"><div class="stat-label">Fours</div><input type="number" step="1" id="bat_fours"></div>
+  <div class="stat-card"><div class="stat-label">Sixes</div><input type="number" step="1" id="bat_sixes"></div>
+  <div class="stat-card"><div class="stat-label">Dismissals</div><input type="number" step="1" id="bat_dismissals"></div>
+  <div class="stat-card"><div class="stat-label">Strike Rate</div><input type="number" step="0.01" id="bat_sr"></div>
+  <div class="stat-card"><div class="stat-label">Average</div><input type="number" step="0.01" id="bat_avg"></div>
+  <div class="stat-card"><div class="stat-label">Balls per Boundary</div><input type="number" step="0.01" id="bat_balls_per_boundary"></div>
+  <div class="stat-card"><div class="stat-label">Highest Score</div><input type="number" step="1" id="bat_highest_score"></div>
+  <div class="stat-card"><div class="stat-label">50s</div><input type="number" step="1" id="bat_50s"></div>
+  <div class="stat-card"><div class="stat-label">100s</div><input type="number" step="1" id="bat_100s"></div>
+  <div class="stat-card"><div class="stat-label">Duck</div><input type="number" step="1" id="bat_duck"></div>
+  <div class="stat-card"><div class="stat-label">Not Outs</div><input type="number" step="1" id="bat_not_outs"></div>
+
+  <button onclick="saveBatting()">Save Batting</button>
+</div>
+
+  <!-- BOWLING TAB -->
+<div id="bowling" class="tab stats-grid">
+  <div class="stat-card"><div class="stat-label">Matches</div><input type="number" step="1" id="bowl_matches"></div>
+  <div class="stat-card"><div class="stat-label">Innings</div><input type="number" step="1" id="bowl_innings"></div>
+  <div class="stat-card"><div class="stat-label">Overs</div><input type="number" step="0.1" id="bowl_overs"></div>
+  <div class="stat-card"><div class="stat-label">Runs</div><input type="number" step="0.1" id="bowl_runs"></div>
+  <div class="stat-card"><div class="stat-label">Balls</div><input type="number" step="1" id="bowl_balls"></div>
+  <div class="stat-card"><div class="stat-label">Wickets</div><input type="number" step="1" id="bowl_wickets"></div>
+  <div class="stat-card"><div class="stat-label">Economy</div><input type="number" step="0.01" id="bowl_econ"></div>
+  <div class="stat-card"><div class="stat-label">Strike Rate</div><input type="number" step="0.01" id="bowl_sr"></div>
+  <div class="stat-card"><div class="stat-label">3W Hauls</div><input type="number" step="1" id="bowl_3w"></div>
+  <div class="stat-card"><div class="stat-label">5W Hauls</div><input type="number" step="1" id="bowl_5w"></div>
+  <div class="stat-card"><div class="stat-label">Wide</div><input type="number" step="1" id="bowl_wide"></div>
+  <div class="stat-card"><div class="stat-label">No Balls</div><input type="number" step="1" id="bowl_noball"></div>
+
+  <button onclick="saveBowling()">Save Bowling</button>
+</div>
+
+<!-- FIELDING TAB -->
+<div id="fielding" class="tab stats-grid">
+  <div class="stat-card"><div class="stat-label">Matches</div><input type="number" step="1" id="field_matches"></div>
+  <div class="stat-card"><div class="stat-label">Catches</div><input type="number" step="1" id="field_catches"></div>
+  <div class="stat-card"><div class="stat-label">Run Outs</div><input type="number" step="1" id="field_runouts"></div>
+
+  <button onclick="saveFielding()">Save Fielding</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

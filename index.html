@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CricX Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="login-wrapper">
+  <div class="login-box">
+    <h1 class="logo">CricX</h1>
+    <input type="text" id="playerName" placeholder="Enter Player Name">
+    <button onclick="login()">Start</button>
+  </div>
+</div>
+
+<script>
+function login() {
+  const name = document.getElementById("playerName").value.trim();
+  if (!name) {
+    alert("Please enter your name!");
+    return;
+  }
+  localStorage.setItem("player", name);
+  window.location.href = "dashboard.html";
+}
+</script>
+
+</body>
+</html>
