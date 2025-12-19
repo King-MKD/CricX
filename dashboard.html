@@ -67,7 +67,28 @@
 
   <button onclick="saveFielding()">Save Fielding</button>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const player = localStorage.getItem("player");
+
+    // Must be logged in as MKD
+    if (player !== "MKD") {
+      window.location.href = "index.html";
+      return;
+    }
+
+    // Ask secret key
+    const key = prompt("Enter secret key:");
+    if (key !== "4719") {
+      alert("Wrong key! Access denied.");
+      window.location.href = "index.html";
+    }
+  });
+</script>
+
+<script src="app.js"></script>
 
 <script src="app.js"></script>
 </body>
 </html>
+
