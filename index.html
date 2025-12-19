@@ -17,16 +17,30 @@
 </div>
 
 <script>
-function login() {
-  const name = document.getElementById("playerName").value.trim();
-  if (!name) {
-    alert("Please enter your name!");
-    return;
+  // Auto-redirect if already logged in as MKD
+  window.onload = function () {
+    const saved = localStorage.getItem("player");
+    if (saved === "MKD") {
+      window.location.href = "dashboard.html";
+    }
+  };
+
+  function login() {
+    const name = document.getElementById("playerName").value.trim();
+
+    // Allow only MKD
+    if (name !== "MKD") {
+      alert("Only 'MKD' is allowed to login!");
+      return;
+    }
+
+    // Save once and go to dashboard
+    localStorage.setItem("player", "MKD");
+    window.location.href = "dashboard.html";
   }
-  localStorage.setItem("player", name);
-  window.location.href = "dashboard.html";
-}
 </script>
+
 
 </body>
 </html>
+
