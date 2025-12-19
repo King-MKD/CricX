@@ -44,13 +44,31 @@ document.addEventListener("DOMContentLoaded", () => {
 // SAVE / LOAD FUNCTIONS
 function saveBatting() {
   const data = {};
-  ["matches","innings","runs","balls","fours","sixes","dismissals","sr","avg"].forEach(k => {
-    const el = document.getElementById("bat_"+k);
-    data[k] = parseFloat(el.value)||0;
+  [
+    "matches",
+    "innings",
+    "runs",
+    "balls_faced",
+    "fours",
+    "sixes",
+    "dismissals",
+    "sr",
+    "avg",
+    "balls_per_boundary",
+    "highest_score",
+    "50s",
+    "100s",
+    "duck",
+    "not_outs"
+  ].forEach(k => {
+    const el = document.getElementById("bat_" + k);
+    if (el) data[k] = parseFloat(el.value) || 0;
   });
+
   localStorage.setItem("batting", JSON.stringify(data));
   alert("Batting saved!");
 }
+
 
 function saveBowling() {
   const data = {};
@@ -91,3 +109,4 @@ function loadAll() {
     if(el) el.value = fielding[k];
   });
 }
+
