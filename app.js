@@ -79,13 +79,31 @@ function saveBatting() {
 
 function saveBowling() {
   const data = {};
-  ["matches","innings","overs","balls","runs","wickets","econ","sr","3w","5w","wide","noball"].forEach(k => {
-    const el = document.getElementById("bowl_"+k);
-    data[k] = parseFloat(el.value)||0;
+  const fields = [
+    "matches",
+    "innings",
+    "overs",
+    "balls",
+    "runs",
+    "wickets",
+    "econ",
+    "sr",
+    "three_w",
+    "five_w",
+    "wides",
+    "no_balls"
+  ];
+
+  fields.forEach(k => {
+    const el = document.getElementById("bowl_" + k);
+    data[k] = el ? el.value : "";
   });
+
   localStorage.setItem("bowling", JSON.stringify(data));
+  console.log("Saved bowling:", data);
   alert("Bowling saved!");
 }
+
 
 function saveFielding() {
   const data = {};
@@ -116,6 +134,7 @@ Object.keys(batting).forEach(k => {
     if(el) el.value = fielding[k];
   });
 }
+
 
 
 
